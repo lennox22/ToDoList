@@ -1,0 +1,23 @@
+<tr>
+    <td>
+        <div>Task: {{ thisTask.task }}</div>
+        <div>Completed: {{ thisTask.completed }}</div>
+    </td>
+    <td>
+        <span *ngIf="isClicked == false">
+            <button (click)="OnClick()">Edit Task</button>
+        </span>
+        <span *ngIf="isClicked">
+            <input [(ngModel)]="thisTask.task" type="text" />
+            <button (click)="OffClick()">Finished</button>
+        </span>
+        
+        <div *ngIf="thisTask.completed == false">
+            <button [(ngModel)]="thisTask.completed" (click)="CompletedTask()">Complete</button>
+        </div>
+    </td>
+    <td>
+        <div><button (click)="deleteTask()"> X </button></div>
+
+    </td>
+</tr>
